@@ -1,0 +1,22 @@
+{
+  "name": "socialnetwork",
+  "version": "1.0.0",
+  "description": "project with the goal to build the backend of a simple social network",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongoose": "^8.8.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/mongoose": "^5.11.96",
+    "typescript": "^5.6.3"
+  }
+}
