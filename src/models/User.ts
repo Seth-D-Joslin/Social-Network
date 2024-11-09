@@ -1,10 +1,13 @@
 import { Schema, model, Document, ObjectId } from "mongoose";
+import Thought from "./Thought";
 
 interface iUser extends Document {
   username: string;
   email: string;
-  thoughts: ObjectId[];
-  reactions: ObjectId[];
+  thoughts: (typeof Thought)[];
+  //self reference array
+  friends: ObjectId[];
+  friendCount: number;
 }
 
 const userSchema = new Schema<iUser>({
@@ -20,4 +23,25 @@ const userSchema = new Schema<iUser>({
     unique: true,
     validate: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/],
   },
+  thoughts: [Thought],
+  friends: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
+
+userSchema.set("toJSON", { virtuals: true });
+userSchema.set("id", false);
+
+// creates a virtual called friendCount that retrieves the length of the user's friends array field on query
+userSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
+});
+
+//initialize model
+const User = model("user", userSchema);
+
+//export model
+export default User;
