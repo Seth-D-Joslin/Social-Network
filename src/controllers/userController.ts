@@ -12,11 +12,11 @@ const getUsers = async (_req: Request, res: Response) => {
 
 const getSingleUser = async (req: Request, res: Response) => {
   try {
-    const user = await User.findOne({ _id: req.params.userId }).select("-__v");
+    const user = await User.findOne({ _id: req.params.userId });
 
-    if (!user) {
-      return res.status(404).json({ message: "No user with that ID" });
-    }
+    // if (!user) {
+    //  return res.status(404).json({ message: "No user with that ID" });
+    // }
 
     res.json(user);
     return;
@@ -40,8 +40,13 @@ const deleteUser = async (req: Request, res: Response) => {
     const user = await User.findOneAndDelete({ _id: req.params.userId });
 
     if (!user) {
-      return res.status(404).json({ message: "No user with that ID" });
+      return;
     }
+
+    //commented out code is not liked by typescript
+    // if (!user) {
+    //   return res.status(404).json({ message: "No user with that ID" });
+    // }
 
     await Thought.deleteMany({ _id: { $in: user.thoughts } });
     res.json({ message: "User and associated thoughts deleted!" });

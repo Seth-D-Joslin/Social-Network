@@ -14,9 +14,9 @@ const getSingleThought = async (req: Request, res: Response) => {
   try {
     const thought = await Thought.findOne({ _id: req.params.thoughtId });
 
-    if (!thought) {
-      return res.status(404).json({ message: "No thought with that ID" });
-    }
+    // if (!thought) {
+    //   return res.status(404).json({ message: "No thought with that ID" });
+    // }
 
     res.json(thought);
     return;
@@ -36,10 +36,13 @@ const createThought = async (req: Request, res: Response) => {
     );
 
     if (!user) {
-      return res.status(404).json({
-        message: "Thought created, but found no user with that ID",
-      });
+      return;
     }
+    // if (!user) {
+    //   return res.status(404).json({
+    //     message: "Thought created, but found no user with that ID",
+    //   });
+    // }
 
     res.json("Created the thought 🎉");
     return;
@@ -58,9 +61,9 @@ const updateThought = async (req: Request, res: Response) => {
       { runValidators: true, new: true }
     );
 
-    if (!thought) {
-      return res.status(404).json({ message: "No thought with this id!" });
-    }
+    // if (!thought) {
+    //   return res.status(404).json({ message: "No thought with this id!" });
+    // }
 
     res.json(thought);
     return;
@@ -78,8 +81,12 @@ const deleteThought = async (req: Request, res: Response) => {
     });
 
     if (!thought) {
-      return res.status(404).json({ message: "No thought with this id!" });
+      return;
     }
+
+    // if (!thought) {
+    //   return res.status(404).json({ message: "No thought with this id!" });
+    // }
 
     const user = await User.findOneAndUpdate(
       { thoughts: req.params.thoughtId },
@@ -88,10 +95,13 @@ const deleteThought = async (req: Request, res: Response) => {
     );
 
     if (!user) {
-      return res.status(404).json({
-        message: "Thought created but no user with this id!",
-      });
+      return;
     }
+    // if (!user) {
+    //   return res.status(404).json({
+    //     message: "Thought created but no user with this id!",
+    //   });
+    // }
 
     res.json({ message: "Thought successfully deleted!" });
     return;
@@ -109,9 +119,9 @@ const addReaction = async (req: Request, res: Response) => {
       { runValidators: true, new: true }
     );
 
-    if (!thought) {
-      return res.status(404).json({ message: "No thought with this id!" });
-    }
+    // if (!thought) {
+    //   return res.status(404).json({ message: "No thought with this id!" });
+    // }
 
     res.json(thought);
     return;
@@ -129,9 +139,9 @@ const removeReaction = async (req: Request, res: Response) => {
       { runValidators: true, new: true }
     );
 
-    if (!thought) {
-      return res.status(404).json({ message: "No thought with this id!" });
-    }
+    // if (!thought) {
+    //   return res.status(404).json({ message: "No thought with this id!" });
+    // }
 
     res.json(thought);
     return;
