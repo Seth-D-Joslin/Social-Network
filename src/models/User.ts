@@ -1,5 +1,5 @@
 import { Schema, model, Document, ObjectId } from "mongoose";
-import Thought from "./Thought";
+import Thought from "./Thought.js";
 
 interface iUser extends Document {
   username: string;
@@ -23,7 +23,12 @@ const userSchema = new Schema<iUser>({
     unique: true,
     validate: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/],
   },
-  thoughts: [Thought],
+  thoughts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Thought",
+    },
+  ],
   friends: [
     {
       type: Schema.Types.ObjectId,

@@ -40,4 +40,4 @@ const reactionSchema = new Schema<iReaction>({
 });
 
 //exported to Thought
-export default reactionSchema;
+export { reactionSchema, iReaction };

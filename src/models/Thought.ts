@@ -1,11 +1,12 @@
 import { Schema, model, Document } from "mongoose";
-import Reaction from "./Reaction";
+import { reactionSchema } from "./Reaction.js";
+import type { iReaction } from "./Reaction.js";
 
 interface iThought extends Document {
   thoughtText: string;
   createdAt: Date;
   username: string;
-  reactions: (typeof Reaction)[];
+  reactions: iReaction[];
   reactionCount: number;
 }
 
@@ -32,7 +33,7 @@ const thoughtSchema = new Schema<iThought>({
     type: String,
     required: true,
   },
-  reactions: [Reaction],
+  reactions: [reactionSchema],
 });
 
 // another way to implement schema options in thoughtSchema
