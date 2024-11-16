@@ -1,68 +1,68 @@
-const users = [
-  {
-    username: "Apples",
-    email: "A@aol.com",
-    thoughts: [
-      {
-        thoughtText: "apples taste better than oranges",
-      },
-      {
-        thoughtText: "bananas are pretty mid tbh",
-      },
-    ],
-    friends: [
-      {
-        username: "Bananas",
-        email: "B@aol.com",
-      },
-    ],
-  },
-  {
-    username: "Oranges",
-    email: "O@aol.com",
-    thoughts: [
-      {
-        thoughtText: "oranges taste better than apples",
-      },
-      {
-        thoughtText: "yeah, bananas are pretty mid",
-      },
-    ],
-    friends: [
-      {
-        username: "Bananas",
-        email: "B@aol.com",
-      },
-    ],
-  },
-  {
-    username: "Bananas",
-    email: "B@aol.com",
-    thoughts: [
-      {
-        thoughtText: "bananas are the best thing since slice bread",
-      },
-      {
-        thoughtText: "apples taste good",
-      },
-      {
-        thoughtText: "oranges taste good",
-      },
-    ],
-    friends: [
-      {
-        username: "Apples",
-        email: "A@aol.com",
-      },
-      {
-        username: "Oranges",
-        email: "O@aol.com",
-      },
-    ],
-  },
-];
+// const users = [
+//   {
+//     username: "Apples",
+//     email: "A@aol.com",
+//     thoughts: [
+//       {
+//         thoughtText: "apples taste better than oranges",
+//       },
+//       {
+//         thoughtText: "bananas are pretty mid tbh",
+//       },
+//     ],
+//     friends: [
+//       {
+//         username: "Bananas",
+//         email: "B@aol.com",
+//       },
+//     ],
+//   },
+//   {
+//     username: "Oranges",
+//     email: "O@aol.com",
+//     thoughts: [
+//       {
+//         thoughtText: "oranges taste better than apples",
+//       },
+//       {
+//         thoughtText: "yeah, bananas are pretty mid",
+//       },
+//     ],
+//     friends: [
+//       {
+//         username: "Bananas",
+//         email: "B@aol.com",
+//       },
+//     ],
+//   },
+//   {
+//     username: "Bananas",
+//     email: "B@aol.com",
+//     thoughts: [
+//       {
+//         thoughtText: "bananas are the best thing since slice bread",
+//       },
+//       {
+//         thoughtText: "apples taste good",
+//       },
+//       {
+//         thoughtText: "oranges taste good",
+//       },
+//     ],
+//     friends: [
+//       {
+//         username: "Apples",
+//         email: "A@aol.com",
+//       },
+//       {
+//         username: "Oranges",
+//         email: "O@aol.com",
+//       },
+//     ],
+//   },
+// ];
 
-export default users;
+// export default users;
 
 // import { User, Thought } from "../models/index.js";
 
